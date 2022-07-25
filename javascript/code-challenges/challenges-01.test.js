@@ -131,9 +131,8 @@ const createList = (availableItems) => {
   // Solution code here...
   const newarr = [];
   availableItems.forEach((value, idx) => {
-    if (availableItems[idx].available==="true")
-      newarr.push(value);
-
+    if (availableItems[idx].available===true)
+      newarr.push(value.name);
   })
   return newarr;
 };
