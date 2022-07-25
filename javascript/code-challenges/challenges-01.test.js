@@ -10,6 +10,11 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 
 const addOne = (arr) => {
   // Solution code here...
+  const newarr = [];
+  arr.forEach(value => {
+    newarr.push(value + 1);
+  })
+  return newarr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,6 +27,11 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
+  const newarr = [];
+  arr.forEach(value => {
+    newarr.push(value + '!');
+  })
+  return newarr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,6 +44,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   // Solution code here...
+  const newarr = [];
+  arr.forEach(value => {
+    newarr.push(value.toUpperCase());
+  })
+  return newarr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,10 +63,21 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 
 const greeting = (word) => {
   // Solution code here...
+  let value;
+  value = word.toUpperCase() + '!';
+  return value;
+
+
 };
 
 const speaker = (words, callback) => {
   // Solution code here...
+  const newarr = [];
+  words.forEach(value => {
+    newarr.push(callback(value));
+  })
+  return newarr;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,10 +98,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num)
+  };
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,8 +129,14 @@ This function should use forEach to populate your grocery list based on the stor
 
 const createList = (availableItems) => {
   // Solution code here...
+  const newarr = [];
+  availableItems.forEach((value, idx) => {
+    if (availableItems[idx].available===true)
+      newarr.push(value.name);
+  })
+  return newarr;
 };
-
+//test
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
 
@@ -111,13 +148,29 @@ Iterate over the array using forEach to determine the output based on several ru
   - If the number is divisible by both 3 and 5, add the phrase "Fizz Buzz" to the output array.
   - Otherwise, add the number to the output array.
 
-Return the resulting output array.
+Return the newarrulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
-};
+  let newarr = [];
+  arr.forEach(value => {
+    if (value % 3 == 0 && value % 5 == 0)
+      newarr.push("Fizz Buzz")
+    else {
+      if (value % 3 == 0)
+        newarr.push("Fizz")
+      else {
+        if (value % 5 == 0)
+          newarr.push("Buzz")
+        else
+          newarr.push(value);
+      }
 
+    }
+
+  })
+  return newarr;
+};
 /* ------------------------------------------------------------------------------------------------
 TESTS
 
