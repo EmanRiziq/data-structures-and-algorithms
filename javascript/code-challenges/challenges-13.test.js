@@ -33,11 +33,11 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
-  let newarr=[];
+  let newarr = [];
   for (let i = 0; i < arr.length; i++) {
     newarr.push(arr[i].charAt(0))
   }
-return newarr;
+  return newarr;
 
 };
 
@@ -52,12 +52,12 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
-  let newarr=[];
+  let newarr = [];
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes(':)'))
-    newarr.push(arr[i])
+      newarr.push(arr[i])
   }
-return newarr;
+  return newarr;
 
 };
 
@@ -88,6 +88,13 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let newstr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2) {
+      newstr += str[i]
+    }
+  }
+  return newstr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,6 +105,13 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  let happyflag = true
+  for (let i = 0; i < arr.length; i++) {
+    if (!arr[i].includes(':)'))
+      happyflag = false
+  }
+  return happyflag;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -228,7 +242,7 @@ describe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should only return the odd indexed characters from the string', () => {
     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
     expect(onlyOddChars('abcd')).toStrictEqual('bd');
@@ -237,7 +251,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should correctly assess whether all the strings are happy', () => {
     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
